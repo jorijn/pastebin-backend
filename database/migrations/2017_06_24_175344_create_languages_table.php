@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreatePastesTable extends Migration
+class CreateLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePastesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pastes', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('language');
         });
     }
 
@@ -26,6 +26,6 @@ class CreatePastesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pastes');
+        Schema::dropIfExists('languages');
     }
 }
