@@ -184,7 +184,7 @@ class LanguagesSeeder extends Seeder
 }');
 
         foreach ($languages as $languageKey => $languageLabel) {
-            \App\Language::create([ 'language' => $languageKey ]);
+            \App\Language::create(['language' => $languageKey]);
         }
     }
 }

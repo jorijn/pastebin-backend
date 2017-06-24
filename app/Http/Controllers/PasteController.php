@@ -10,7 +10,7 @@ class PasteController extends Controller
     {
         $this->validate($request, [
             'language' => 'required|exists:languages,language',
-            'content' => 'required|min:1'
+            'content'  => 'required|min:1',
         ]);
     }
 }
