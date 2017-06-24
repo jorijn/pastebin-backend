@@ -16,11 +16,11 @@ class CreatePastesTable extends Migration
         Schema::create('pastes', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->datetime('expires_at');
+            $table->datetime('expires_at')->nullable();
             $table->text('content');
             $table->integer('language_id')->unsigned();
             $table->foreign('language_id')->references('id')->on('languages');
-            $table->string('hash');
+            $table->string('hash')->nullable();
             $table->unique('hash');
         });
     }
