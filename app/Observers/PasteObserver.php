@@ -10,7 +10,8 @@ class PasteObserver
     /**
      * Listen to the Paste created event.
      *
-     * @param  Paste  $paste
+     * @param Paste $paste
+     *
      * @return void
      */
     public function created(Paste $paste)
