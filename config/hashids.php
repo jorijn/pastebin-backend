@@ -40,7 +40,7 @@ return [
     'connections' => [
 
         'main' => [
-            'salt' => config('app.key'),
+            'salt'   => config('app.key'),
             'length' => 8,
         ],
 
