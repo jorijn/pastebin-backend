@@ -11,10 +11,9 @@ return [
      |
      */
     'supportsCredentials' => false,
-    'allowedOrigins' => explode('|', env('ALLOW_CORS_ORIGINS', 'https://paste.hosting')),
-    'allowedHeaders' => ['*'],
-    'allowedMethods' => ['*'],
-    'exposedHeaders' => [],
-    'maxAge' => 0,
+    'allowedOrigins'      => explode('|', env('ALLOW_CORS_ORIGINS', 'https://paste.hosting')),
+    'allowedHeaders'      => ['*'],
+    'allowedMethods'      => ['*'],
+    'exposedHeaders'      => [],
+    'maxAge'              => 0,
 ];
-
