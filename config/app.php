@@ -181,6 +181,7 @@ return [
          * Paste
          */
         Vinkla\Hashids\HashidsServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*
