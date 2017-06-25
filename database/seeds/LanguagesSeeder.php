@@ -12,7 +12,6 @@ class LanguagesSeeder extends Seeder
     public function run()
     {
         $languages = json_decode('{
-  "plaintext": "plain text",
   "1c": "1c",
   "abnf": "abnf",
   "accesslog": "accesslog",
