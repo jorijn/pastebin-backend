@@ -10,6 +10,7 @@ class PasteController extends Controller
 {
     /**
      * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function postPaste(Request $request): JsonResponse
@@ -30,6 +31,7 @@ class PasteController extends Controller
      * return 404 otherwise.
      *
      * @param string $hash
+     *
      * @return JsonResponse
      */
     public function getPaste(string $hash): JsonResponse
