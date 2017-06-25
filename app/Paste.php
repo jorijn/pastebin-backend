@@ -32,7 +32,7 @@ use Illuminate\Http\Request;
 class Paste extends Model
 {
     protected $dates = ['updated_at', 'created_at', 'expires_at'];
-    protected $visible = [ 'content', 'hash', 'language' ];
+    protected $visible = ['content', 'hash', 'language'];
     protected $appends = ['language'];
 
     /**
@@ -40,6 +40,7 @@ class Paste extends Model
      * parameters. Assumes $request has been validated already.
      *
      * @param Request $request
+     *
      * @return Paste
      */
     public static function createFromRequest(Request $request): Paste
@@ -47,7 +48,7 @@ class Paste extends Model
         $language = Language::where('language', $request->get('language'))->first();
         abort_if(is_null($language) === true, 404, 'Language not found');
 
-        $paste = new static;
+        $paste = new static();
         $paste->content = $request->get('content');
         $paste->language_id = $language->id;
         $paste->ip = $request->ip();
