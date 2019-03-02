@@ -41,7 +41,7 @@ return [
 
         'main' => [
             'salt'   => config('app.key'),
-            'length' => 8,
+            'length' => env('HASH_LENGTH', 8),
         ],
 
     ],
