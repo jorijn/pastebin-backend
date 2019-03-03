@@ -1,0 +1,9 @@
+FROM php:7.2-fpm
+RUN docker-php-ext-install pdo pdo_mysql bcmath
+
+# We're installing composer to install all the dependencies and run all the
+# required scripts from a single PHP container.
+RUN apt-get update && apt-get install -y git unzip zip
+RUN curl https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer > ~/composer \
+    && php ~/composer --install-dir=/bin --filename=composer \
+    && rm ~/composer

@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -w /code -it $(docker-compose ps | grep php | awk '{print $1}') /bin/bash
