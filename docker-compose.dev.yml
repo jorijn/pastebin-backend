@@ -6,7 +6,3 @@ services:
     build:
       context: docker/php
       dockerfile: Dockerfile-dev
-    volumes:
-      - ./:/code
-    networks:
-      - pastebin-network

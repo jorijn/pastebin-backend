@@ -4,19 +4,13 @@ services:
   frontend:
     build:
       context: ../pastebin-frontend
-    ports:
-      - "8080:3000"
     volumes:
       - ../pastebin-frontend:/usr/src/app
-    environment:
-      REACT_APP_PASTE_API_ENDPOINT: "http://localhost:8000"
     networks:
       - pastebin-network
 
   web:
     image: nginx:latest
-    ports:
-      - "8000:80"
     volumes:
       - ./:/code
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
