@@ -9,3 +9,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+.php_cs.cache
+docker.env
+docker-compose.local.yml

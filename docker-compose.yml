@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ../pastebin-frontend
+    volumes:
+      - ../pastebin-frontend:/usr/src/app
+    networks:
+      - pastebin-network
+    restart: always
+
+  web:
+    image: nginx:latest
+    volumes:
+      - ./:/code
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - pastebin-network
+    restart: always
+
+  php:
+    image: pastebin:php
+    build:
+      context: docker/php
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/code
+    networks:
+      - pastebin-network
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - pastebin-network
+    env_file:
+      - docker.env
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    restart: always
+
+networks:
+  pastebin-network:
+    driver: bridge
+
+volumes:
+  database:

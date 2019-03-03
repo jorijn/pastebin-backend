@@ -4,16 +4,18 @@ namespace Tests\Unit;
 
 use App\Observers\PasteObserver;
 use App\Paste;
-use Vinkla\Hashids\Facades\Hashids;
 use function mt_rand;
+use Tests\TestCase;
+use \Vinkla\Hashids\Facades\Hashids;
 
-class PasteObserverTest extends \PHPUnit_Framework_TestCase
+class PasteObserverTest extends TestCase
 {
     /** @test */
     public function it_adds_a_hash_to_the_paste_and_saves_it()
     {
         $pasteId = (string)mt_rand();
         $hash = (string)mt_rand();
+
         Hashids
             ::shouldReceive('encode')
             ->once()
